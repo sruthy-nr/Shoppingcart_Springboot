@@ -35,9 +35,17 @@ public class ShoppingcartController {
         return map;
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping(path = "/viewproduct")
     public List<Shoppingcart> ViewProduct(){
 
         return (List<Shoppingcart>) dao.findAll();
+    }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/searchproduct", consumes = "application/json", produces = "application/json")
+    public List<Shoppingcart> SearchProduct(@RequestBody Shoppingcart s){
+
+        return (List<Shoppingcart>) dao.searchProduct(s.getName());
     }
 }
