@@ -26,11 +26,6 @@ public class ShoppingcartController {
     @CrossOrigin(origins = "*")
     @PostMapping(path = "/addproduct", consumes = "application/json", produces = "application/json")
     public Map<String, String> AddProduct(@RequestBody Shoppingcart s){
-        System.out.println(s.getName().toString());
-        System.out.println(s.getImage().toString());
-        System.out.println(s.getCategory().toString());
-        System.out.println(s.getDescription().toString());
-        System.out.println(s.getPrice());
         dao.save(s);
         HashMap<String, String> map=new HashMap<>();
         map.put("status","success");
