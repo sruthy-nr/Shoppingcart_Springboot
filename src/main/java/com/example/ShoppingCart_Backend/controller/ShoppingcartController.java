@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -32,5 +33,11 @@ public class ShoppingcartController {
         HashMap<String, String> map=new HashMap<>();
         map.put("status","success");
         return map;
+    }
+
+    @GetMapping(path = "/viewproduct")
+    public List<Shoppingcart> ViewProduct(){
+
+        return (List<Shoppingcart>) dao.findAll();
     }
 }
